@@ -1,9 +1,9 @@
+/* Importação das fontes da identidade visual Olíbano */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Importação das fontes da identidade visual Olíbano */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
 
 @layer base {
   html {
@@ -42,5 +42,33 @@
   /* Cards com hover elegante */
   .card-hover {
     @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .section-heading {
+    @apply flex items-center gap-4 mb-8;
+  }
+
+  .section-heading__icon {
+    @apply p-3 rounded-2xl shadow-md bg-olibano-cream text-olibano-forest;
+  }
+
+  .section-heading__eyebrow {
+    @apply text-[11px] uppercase tracking-[0.4em] text-olibano-sage block mb-1;
+  }
+
+  .section-heading__title {
+    @apply text-4xl font-serif text-olibano-forest;
+  }
+
+  .section-progress-pill {
+    @apply bg-white/80 backdrop-blur-sm border border-olibano-sage/30 rounded-full px-5 py-2 shadow;
+  }
+
+  .section-progress-pill__index {
+    @apply text-[11px] font-semibold text-olibano-sage tracking-[0.4em] mr-3;
+  }
+
+  .section-progress-pill__label {
+    @apply text-sm font-medium text-olibano-forest;
   }
 }
