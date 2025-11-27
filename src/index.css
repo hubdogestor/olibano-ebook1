@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Importação das fontes da identidade visual Olíbano */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-olibano-cream text-olibano-forest;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Estilização da seleção de texto */
+  ::selection {
+    @apply bg-olibano-gold/30 text-olibano-forest;
+  }
+
+  /* Animações suaves para transições */
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Estilos customizados para checkboxes */
+  input[type="checkbox"] {
+    @apply accent-olibano-forest;
+  }
+
+  /* Estilo para links */
+  a {
+    @apply transition-all duration-200;
+  }
+
+  /* Cards com hover elegante */
+  .card-hover {
+    @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+  }
+}
