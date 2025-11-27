@@ -34,11 +34,13 @@ const Breathwork = () => (
   <SectionWrapper>
     <SectionHeading Icon={Wind} title="Breathwork" eyebrow="Prática 02" accentClasses="bg-gradient-to-br from-sky-100 to-sky-200 text-sky-700" />
 
-    <p className="text-olibano-forest/80 mb-8 leading-relaxed text-lg font-light">
-      Técnicas intencionais de respiração para modular energia. É a ferramenta mais rápida para <span className="text-olibano-terracotta font-medium">hackear seu sistema nervoso autônomo</span>.
-    </p>
+    <div className="space-y-8">
+      <p className="text-olibano-forest/80 leading-relaxed text-lg font-light">
+        Técnicas intencionais de respiração para modular energia. É a ferramenta mais rápida para <span className="text-olibano-terracotta font-medium">hackear seu sistema nervoso autônomo</span>.
+      </p>
 
-    <BreathingExercise />
+      <BreathingExercise />
+    </div>
 
     <div className="grid gap-5 mt-10">
       {breathCards.map((card) => (

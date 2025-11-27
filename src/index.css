@@ -116,12 +116,30 @@
   }
 
   .section-shell {
-    @apply px-6 py-12 max-w-3xl mx-auto animate-slideUp relative z-10;
+    @apply w-full px-6 py-12 max-w-4xl mx-auto animate-slideUp relative z-10;
+  }
+
+  @screen sm {
+    .section-shell {
+      @apply px-8;
+    }
+  }
+
+  @screen md {
+    .section-shell {
+      @apply px-12;
+    }
+  }
+
+  @screen lg {
+    .section-shell {
+      @apply px-16;
+    }
   }
 
   .section-shell::before {
     content: '';
-    @apply absolute inset-6 rounded-[var(--olibano-radius-xl)] bg-gradient-to-br from-white/90 to-olibano-cream/70 border border-white/50 shadow-lg;
+    @apply absolute inset-0 rounded-[var(--olibano-radius-xl)] bg-gradient-to-br from-white/90 to-olibano-cream/70 border border-white/50 shadow-lg;
     box-shadow: var(--olibano-shadow-soft);
     z-index: -1;
   }
