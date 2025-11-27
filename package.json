@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "autoprefixer": "^10.4.22",
     "lucide-react": "^0.555.0",
-    "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.1.17"
@@ -14,6 +12,7 @@
   },
   "name": "olibano-ebook1",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
