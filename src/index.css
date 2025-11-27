@@ -6,6 +6,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --olibano-radius-xl: 1.75rem;
+    --olibano-radius-xxl: 2.5rem;
+    --olibano-shadow-soft: 0 25px 70px rgba(45, 74, 62, 0.08);
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -25,6 +31,43 @@
   /* Animações suaves para transições */
   * {
     @apply transition-colors duration-200;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #8B9A7D;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2D4A3E;
   }
 }
 
@@ -70,5 +113,28 @@
 
   .section-progress-pill__label {
     @apply text-sm font-medium text-olibano-forest;
+  }
+
+  .section-shell {
+    @apply px-6 py-12 max-w-3xl mx-auto animate-slideUp relative z-10;
+  }
+
+  .section-shell::before {
+    content: '';
+    @apply absolute inset-6 rounded-[var(--olibano-radius-xl)] bg-gradient-to-br from-white/90 to-olibano-cream/70 border border-white/50 shadow-lg;
+    box-shadow: var(--olibano-shadow-soft);
+    z-index: -1;
+  }
+
+  .section-shell > * {
+    @apply relative z-10;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.7s ease-out;
   }
 }

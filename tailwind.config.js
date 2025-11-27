@@ -21,6 +21,17 @@ export default {
         'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
         'sans': ['Lato', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
+      borderRadius: {
+        'olibano': 'var(--olibano-radius-xl)',
+        'olibano-xl': 'var(--olibano-radius-xxl)',
+      },
+      boxShadow: {
+        'olibano-soft': '0 25px 70px rgba(45, 74, 62, 0.08)',
+        'olibano-inner': 'inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+      },
+      backgroundImage: {
+        'olibano-pattern': "url('/images/pattern.png')",
+      },
     },
   },
   plugins: [],

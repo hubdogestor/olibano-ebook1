@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, lazy, Suspense } from 'react';
 import useSectionNavigation from './hooks/useSectionNavigation';
 import { menuItems, getNextSectionId, getSectionIndex } from './data/menuItems';
 
@@ -8,28 +8,17 @@ import MobileMenuOverlay from './components/layout/MobileMenuOverlay';
 import NextSectionButton from './components/layout/NextSectionButton';
 import ActiveSectionBadge from './components/common/ActiveSectionBadge';
 
-import Capa from './sections/Capa';
-import Intro from './sections/Intro';
-import Aromaterapia from './sections/Aromaterapia';
-import Breathwork from './sections/Breathwork';
-import Meditacao from './sections/Meditacao';
-import Gemologia from './sections/Gemologia';
-import Cromoterapia from './sections/Cromoterapia';
-import Binaural from './sections/Binaural';
-import Roteiro from './sections/Roteiro';
-import Autora from './sections/Autora';
-
 const sectionComponents = {
-  capa: Capa,
-  intro: Intro,
-  aroma: Aromaterapia,
-  breath: Breathwork,
-  meditacao: Meditacao,
-  gemologia: Gemologia,
-  cromoterapia: Cromoterapia,
-  binaural: Binaural,
-  roteiro: Roteiro,
-  autora: Autora,
+  capa: lazy(() => import('./sections/Capa')),
+  intro: lazy(() => import('./sections/Intro')),
+  aroma: lazy(() => import('./sections/Aromaterapia')),
+  breath: lazy(() => import('./sections/Breathwork')),
+  meditacao: lazy(() => import('./sections/Meditacao')),
+  gemologia: lazy(() => import('./sections/Gemologia')),
+  cromoterapia: lazy(() => import('./sections/Cromoterapia')),
+  binaural: lazy(() => import('./sections/Binaural')),
+  roteiro: lazy(() => import('./sections/Roteiro')),
+  autora: lazy(() => import('./sections/Autora')),
 };
 
 const App = () => {
@@ -44,6 +33,13 @@ const App = () => {
 
   const navigateTo = (sectionId) => handleNavClick(sectionId, scrollToTop);
 
+  const SectionLoading = ({ label = 'Carregando' }) => (
+    <div className="px-6 py-24 max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
+      <div className="w-16 h-16 rounded-full border-4 border-olibano-sage/30 border-t-olibano-forest animate-spin"></div>
+      <p className="text-olibano-forest/60 tracking-[0.3em] text-xs uppercase">{label}</p>
+    </div>
+  );
+
   const renderActiveSection = () => {
     const Component = sectionComponents[activeSection];
     if (!Component) return null;
@@ -53,7 +49,11 @@ const App = () => {
       sectionProps.onStartReading = () => navigateTo('intro');
     }
 
-    return <Component {...sectionProps} />;
+    return (
+      <Suspense fallback={<SectionLoading label={menuItems[currentIndex]?.label} />}>
+        <Component {...sectionProps} />
+      </Suspense>
+    );
   };
 
   const currentIndex = getSectionIndex(activeSection);
@@ -68,20 +68,6 @@ const App = () => {
 
   return (
     <div className="flex h-screen bg-olibano-cream font-sans text-olibano-forest overflow-hidden relative selection:bg-olibano-gold/30">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
-        .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
-        .font-sans { font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fadeIn { animation: fadeIn 1s ease-out; }
-        .animate-slideUp { animation: slideUp 0.7s ease-out; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #8B9A7D; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #2D4A3E; }
-      `}</style>
-
       <Sidebar activeSection={activeSection} onNavigate={navigateTo} />
       <MobileHeader isMenuOpen={isMenuOpen} onToggleMenu={toggleMenu} />
       <MobileMenuOverlay isOpen={isMenuOpen} activeSection={activeSection} onNavigate={navigateTo} />

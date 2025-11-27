@@ -15,8 +15,12 @@ const Autora = () => (
           ))}
         </div>
         <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
-          <div className="w-36 h-36 rounded-full border-4 border-white bg-gradient-to-br from-olibano-cream to-olibano-sage/30 flex items-center justify-center overflow-hidden shadow-xl">
-            <span role="img" aria-label="Avatar" className="text-7xl">👩‍⚕️</span>
+          <div className="w-36 h-36 rounded-full border-4 border-white bg-olibano-cream flex items-center justify-center overflow-hidden shadow-xl">
+            <img
+              src="/images/foto-betusa2.jpg"
+              alt="Dra. Betusa"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>

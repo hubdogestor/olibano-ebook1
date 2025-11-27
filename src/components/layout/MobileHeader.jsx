@@ -11,7 +11,10 @@ const MobileHeader = ({ isMenuOpen, onToggleMenu }) => (
           e.currentTarget.style.display = 'none';
         }}
       />
-      <span className="text-olibano-forest font-serif font-bold tracking-[0.2em] text-sm">OLÍBANO</span>
+      <div>
+        <span className="text-olibano-forest font-serif font-bold tracking-[0.2em] text-xs block">OLÍBANO</span>
+        <span className="text-[10px] tracking-[0.45em] uppercase text-olibano-forest/50">Práticas</span>
+      </div>
     </div>
     <button
       onClick={onToggleMenu}
