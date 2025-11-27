@@ -1,13 +1,13 @@
-import { Droplets, Sparkles } from 'lucide-react';
+import { Droplets, Sparkles, Flower2, Citrus, Leaf, Sprout } from 'lucide-react';
 import SectionWrapper from '../components/common/SectionWrapper';
 import SectionHeading from '../components/common/SectionHeading';
 import GoldenCard from '../components/common/GoldenCard';
 
 const essentialOils = [
-  { name: 'Lavanda', effect: 'Redução de estresse e ansiedade', gradient: 'from-purple-400 to-purple-600', bg: 'bg-purple-50', border: 'border-purple-200' },
-  { name: 'Laranja-doce', effect: 'Calma e bem-estar', gradient: 'from-orange-400 to-orange-600', bg: 'bg-orange-50', border: 'border-orange-200' },
-  { name: 'Hortelã-pimenta', effect: 'Clareza mental e foco', gradient: 'from-emerald-400 to-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200' },
-  { name: 'Alecrim', effect: 'Concentração', gradient: 'from-green-400 to-green-600', bg: 'bg-green-50', border: 'border-green-200' },
+  { name: 'Lavanda', effect: 'Redução de estresse e ansiedade', gradient: 'from-purple-400 to-purple-600', bg: 'bg-purple-50', border: 'border-purple-200', Icon: Flower2 },
+  { name: 'Laranja-doce', effect: 'Calma e bem-estar', gradient: 'from-orange-400 to-orange-600', bg: 'bg-orange-50', border: 'border-orange-200', Icon: Citrus },
+  { name: 'Hortelã-pimenta', effect: 'Clareza mental e foco', gradient: 'from-emerald-400 to-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200', Icon: Leaf },
+  { name: 'Alecrim', effect: 'Concentração', gradient: 'from-green-400 to-green-600', bg: 'bg-green-50', border: 'border-green-200', Icon: Sprout },
 ];
 
 const Aromaterapia = () => (
@@ -24,7 +24,9 @@ const Aromaterapia = () => (
           key={oil.name}
           className={`${oil.bg} ${oil.border} border p-6 rounded-2xl flex items-start gap-4 hover:shadow-lg transition-all duration-300 group`}
         >
-          <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${oil.gradient} shadow-lg group-hover:scale-110 transition-transform flex-shrink-0`}></div>
+          <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${oil.gradient} shadow-lg group-hover:scale-110 transition-transform flex-shrink-0 text-white flex items-center justify-center`}>
+            <oil.Icon size={22} />
+          </div>
           <div>
             <span className="font-serif font-bold text-olibano-forest text-xl block mb-1">{oil.name}</span>
             <span className="text-olibano-forest/60">{oil.effect}</span>

@@ -1,6 +1,27 @@
-import { AlertTriangle, Sparkles } from 'lucide-react';
+import { AlertTriangle, Sparkles, Zap, Waves, Vibrate } from 'lucide-react';
 import SectionWrapper from '../components/common/SectionWrapper';
 import SectionDivider from '../components/common/SectionDivider';
+
+const efvItems = [
+  {
+    Icon: Zap,
+    title: 'Energia',
+    description: 'Capacidade de produzir mudança — no corpo, mente e ambiente.',
+    gradient: 'from-olibano-gold to-olibano-terracotta',
+  },
+  {
+    Icon: Waves,
+    title: 'Frequência',
+    description: 'Quão rápido algo vibra ou oscila. Ex: ritmos cardíacos.',
+    gradient: 'from-olibano-sage to-olibano-forest',
+  },
+  {
+    Icon: Vibrate,
+    title: 'Vibração',
+    description: 'Movimento oscilatório em nós e ao nosso redor.',
+    gradient: 'from-olibano-terracotta to-olibano-gold',
+  },
+];
 
 const Intro = () => (
   <SectionWrapper>
@@ -35,14 +56,10 @@ const Intro = () => (
     </div>
 
     <div className="grid md:grid-cols-3 gap-6 mb-10">
-      {[
-        { letter: 'E', title: 'Energia', description: 'Capacidade de produzir mudança — no corpo, mente e ambiente.', gradient: 'from-olibano-gold to-olibano-terracotta' },
-        { letter: 'F', title: 'Frequência', description: 'Quão rápido algo vibra ou oscila. Ex: ritmos cardíacos.', gradient: 'from-olibano-sage to-olibano-forest' },
-        { letter: 'V', title: 'Vibração', description: 'Movimento oscilatório em nós e ao nosso redor.', gradient: 'from-olibano-terracotta to-olibano-gold' },
-      ].map(({ letter, title, description, gradient }) => (
-        <div key={letter} className="group bg-white p-8 rounded-3xl shadow-md border border-olibano-sage/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <div className={`w-14 h-14 bg-gradient-to-br ${gradient} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
-            <span className="text-white font-bold text-2xl">{letter}</span>
+      {efvItems.map(({ Icon, title, description, gradient }) => (
+        <div key={title} className="group bg-white p-8 rounded-3xl shadow-md border border-olibano-sage/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div className={`w-14 h-14 bg-gradient-to-br ${gradient} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform text-white`}>
+            <Icon size={26} />
           </div>
           <div className="text-olibano-forest mb-3 font-serif font-bold text-2xl">{title}</div>
           <p className="text-olibano-forest/60 leading-relaxed">{description}</p>

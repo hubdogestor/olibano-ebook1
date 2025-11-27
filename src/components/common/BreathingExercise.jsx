@@ -27,15 +27,15 @@ const BreathingExercise = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center p-10 bg-gradient-to-br from-olibano-cream to-olibano-sage/20 rounded-3xl shadow-inner my-8 border border-olibano-sage/30">
-      <h3 className="text-olibano-forest font-serif text-xl mb-6">Prática Visual: Ritmo 4-6</h3>
+    <div className="flex flex-col items-center justify-center p-10 bg-gradient-to-br from-olibano-cream to-olibano-sage/20 rounded-3xl shadow-inner my-8 border border-olibano-sage/30 space-y-12">
+      <h3 className="text-olibano-forest font-serif text-xl text-center">Prática Visual: Ritmo 4-6</h3>
       <div
         className="w-36 h-36 rounded-full bg-gradient-to-br from-olibano-gold via-olibano-terracotta to-olibano-forest flex items-center justify-center text-white font-semibold transition-all duration-[4000ms] ease-in-out shadow-2xl"
         style={{ transform: `scale(${scale})` }}
       >
         <span className="text-center text-sm drop-shadow-lg">{phase}</span>
       </div>
-      <p className="mt-10 text-sm text-olibano-forest/70 text-center max-w-sm font-light">
+      <p className="text-sm text-olibano-forest/70 text-center max-w-sm font-light">
         Siga o círculo: inspire quando ele expandir, expire quando ele contrair.
       </p>
     </div>

@@ -1,12 +1,12 @@
-import { Gem, Sparkles } from 'lucide-react';
+import { Gem, Sparkles, Diamond, Hexagon, Heart, Sun } from 'lucide-react';
 import SectionWrapper from '../components/common/SectionWrapper';
 import SectionHeading from '../components/common/SectionHeading';
 
 const crystals = [
-  { name: 'Quartzo Transparente', effect: 'Clareza e Foco', gradient: 'from-gray-200 via-white to-gray-100', iconBg: 'bg-gray-100' },
-  { name: 'Ametista', effect: 'Calma e Introspecção', gradient: 'from-purple-300 via-purple-200 to-purple-400', iconBg: 'bg-purple-100' },
-  { name: 'Quartzo Rosa', effect: 'Autocuidado', gradient: 'from-pink-300 via-pink-200 to-pink-400', iconBg: 'bg-pink-100' },
-  { name: 'Citrino', effect: 'Vitalidade', gradient: 'from-yellow-300 via-yellow-200 to-amber-400', iconBg: 'bg-yellow-100' },
+  { name: 'Quartzo Transparente', effect: 'Clareza e Foco', gradient: 'from-gray-200 via-white to-gray-100', iconBg: 'bg-gray-100', Icon: Diamond },
+  { name: 'Ametista', effect: 'Calma e Introspecção', gradient: 'from-purple-300 via-purple-200 to-purple-400', iconBg: 'bg-purple-100', Icon: Hexagon },
+  { name: 'Quartzo Rosa', effect: 'Autocuidado', gradient: 'from-pink-300 via-pink-200 to-pink-400', iconBg: 'bg-pink-100', Icon: Heart },
+  { name: 'Citrino', effect: 'Vitalidade', gradient: 'from-yellow-300 via-yellow-200 to-amber-400', iconBg: 'bg-yellow-100', Icon: Sun },
 ];
 
 const Gemologia = () => (
@@ -23,9 +23,10 @@ const Gemologia = () => (
           key={crystal.name}
           className="bg-white rounded-3xl shadow-md flex flex-col items-center justify-center p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-olibano-sage/10 group"
         >
-          <div className={`w-16 h-16 ${crystal.iconBg} rounded-full mb-4 overflow-hidden relative shadow-inner group-hover:scale-110 transition-transform`}>
+          <div className={`w-16 h-16 ${crystal.iconBg} rounded-full mb-4 overflow-hidden relative shadow-inner group-hover:scale-110 transition-transform flex items-center justify-center text-olibano-forest/80`}>
             <div className={`absolute inset-0 bg-gradient-to-tr ${crystal.gradient} opacity-90`}></div>
-            <div className="absolute inset-0 bg-white/20 rounded-full scale-50"></div>
+            <div className="absolute inset-0 bg-white/15 rounded-full"></div>
+            <crystal.Icon className="relative z-10" size={26} />
           </div>
           <strong className="text-olibano-forest font-serif text-lg">{crystal.name}</strong>
           <span className="text-olibano-forest/50 text-sm mt-2">{crystal.effect}</span>

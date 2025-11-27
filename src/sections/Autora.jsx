@@ -1,5 +1,12 @@
-import { Heart, Sparkles } from 'lucide-react';
+import { Heart, Instagram, Facebook, MessageCircle, ShoppingBag } from 'lucide-react';
 import SectionWrapper from '../components/common/SectionWrapper';
+
+const socialLinks = [
+  { label: 'Instagram', href: 'https://www.instagram.com/olibanovip', Icon: Instagram },
+  { label: 'Facebook', href: 'https://www.facebook.com/olibano.vip', Icon: Facebook },
+  { label: 'WhatsApp', href: 'http://wa.me/5551993622621', Icon: MessageCircle },
+  { label: 'Loja Virtual', href: 'https://www.loja.olibanovip.com.br/', Icon: ShoppingBag },
+];
 
 const Autora = () => (
   <SectionWrapper>
@@ -49,19 +56,38 @@ const Autora = () => (
                   e.currentTarget.style.display = 'none';
                 }}
               />
-              <h3 className="font-serif font-bold text-olibano-forest text-xl">Olíbano - Práticas Integrativas</h3>
+              <h3 className="font-serif font-bold text-olibano-forest text-xl text-center">
+                Olíbano - Práticas Integrativas Complementares em Saúde
+              </h3>
             </div>
-            <p className="text-olibano-forest/60 text-sm mb-5">📍 Porto Alegre, RS</p>
+            <p className="text-olibano-forest/60 text-sm mb-5">
+              📍 Rua Gomes Jardim, 201 - Salas 1016 e 1017 - MedPlex Santana - Torre
+            </p>
             <a
-              href="#"
+              href="https://olibano.agende.ai/"
+              target="_blank"
+              rel="noreferrer"
               className="block w-full py-4 bg-gradient-to-r from-olibano-forest to-olibano-forest/90 text-olibano-cream rounded-xl font-bold hover:from-olibano-forest/90 hover:to-olibano-forest transition-all shadow-lg hover:shadow-xl"
             >
               Agendar Experiência
             </a>
           </div>
-          <div className="text-sm text-olibano-forest/40 space-y-1">
-            <p>www.olibanovip.com.br</p>
-            <p>@olibanovip</p>
+          <div className="text-sm text-olibano-forest/60 space-y-2">
+            <p className="font-medium">www.olibanovip.com.br</p>
+            <div className="grid gap-2">
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 py-2 rounded-full border border-olibano-sage/30 hover:border-olibano-terracotta/60 hover:text-olibano-terracotta transition-colors"
+                >
+                  <Icon size={18} />
+                  <span>{label}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
